@@ -14,7 +14,9 @@ public class Methods {
 	 * @return the Euclidean distance between (x1,y1) and (x2,y2)
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
-		double distance = 0;
+		double x = x2 - x1;
+		double y = y2 - y1;
+		double distance = Math.sqrt((x*x) + (y*y));
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
 		
 		return distance;
@@ -34,17 +36,20 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
+		StdDraw.setPenColor(0, 109, 219);
+		StdDraw.filledCircle(x, y, (3.0/4.0)*radius);
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
-
+		StdDraw.setPenColor(146, 0, 0);
+		StdDraw.filledCircle(x, y, (1.0/2.0)*radius);
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
-
+		StdDraw.setPenColor(255, 255, 109);
+		StdDraw.filledCircle(x, y, (1.0/4.0)*radius);
 		
 	}
 
@@ -75,7 +80,9 @@ public class Methods {
 	public static int arraySum(int[] values) {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
-		
+		for(int i = 0; i < values.length; i++ ) {
+			sum += values[i];
+		}
 		return sum;
 	}
 
@@ -87,16 +94,22 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int[length]; // FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
-
-		
+		for(int i = 0; i < length; i ++) {
+			values[i] = value;
+		}
 
 		return values;
 	}
 
 	// TODO: Create an arrayMean method which accepts an int array of values parameter.
 	// TODO: Create a JavaDoc comment for the arrayMean method.
+	public static double arrayMean(int[] array) {
+		int sum = arraySum(array);
+		//int values = (sum / array.length);
 
+		return 1.0 * sum / array.length;
+	}
 	
 }
